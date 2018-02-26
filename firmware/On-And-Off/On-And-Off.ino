@@ -32,6 +32,52 @@ const int V3 = 12;
 
 const int RELAY = LED_BUILTIN;
 
+const long Second = 1000;
+const long Minute = 60;
+
+long off_intervals[16] = {
+  1 * Minute,    // 0
+  2 * Minute,    // 1
+  3 * Minute,    // 2
+  4 * Minute,    // 3
+  5 * Minute,    // 4
+  6 * Minute,    // 5
+  7 * Minute,    // 6
+  8 * Minute,    // 7
+  9 * Minute,    // 8
+  10 * Minute,   // 9
+  15 * Minute,   // 10
+  30 * Minute,   // 11
+  60 * Minute,   // 12
+  90 * Minute,   // 13
+  120 * Minute,  // 14
+  240 * Minute,  // 15
+}; 
+
+long on_intervals[16] = {
+  1 * Second,    // 0
+  1.5 * Second,  // 1
+  2 * Second,    // 2
+  2.5 * Second,  // 3
+  3 * Second,    // 4
+  3.5 * Second,  // 5
+  4 * Second,    // 6
+  4.5 * Second,  // 7
+  5 * Second,    // 8
+  5.5 * Second,  // 9
+  6 * Second,    // 10
+  6.5 * Second,  // 11
+  7 * Second,    // 12
+  7.5 * Second,  // 13
+  8 * Second,    // 14
+  10 * Second,   // 15
+}; 
+
+long off_interval;
+long on_interval;
+
+long ticktack = 0;
+
 void setup() {
   pinMode(U0, INPUT_PULLUP);
   pinMode(U1, INPUT_PULLUP);
@@ -49,7 +95,7 @@ void setup() {
   Serial.println("Hello.");
 }
 
-void printPinStatus() {
+void readRotarySw() {
   int u0 = digitalRead(U0);
   int u1 = digitalRead(U1);
   int u2 = digitalRead(U2);
@@ -58,18 +104,33 @@ void printPinStatus() {
   int v1 = digitalRead(V1);
   int v2 = digitalRead(V2);
   int v3 = digitalRead(V3);
-  int u = (u3 << 3) | (u2 << 2) | (u1 << 1) | u0;
-  int v = (v3 << 3) | (v2 << 2) | (v1 << 1) | v0;
-  Serial.println(u);
-  Serial.println(v);
+  off_interval = (u3 << 3) | (u2 << 2) | (u1 << 1) | u0;
+  on_interval = (v3 << 3) | (v2 << 2) | (v1 << 1) | v0;  
+}
+
+void printPinStatus() {
+  Serial.print("off_interval = ");
+  Serial.println(off_interval);
+  Serial.print("on_interval = ");
+  Serial.println(on_interval);
+  Serial.print("ticktack = ");
+  Serial.println(ticktack);
   Serial.println("---"); 
 }
 
 // the loop function runs over and over again forever
 void loop() {
+  readRotarySw();
   printPinStatus();
-  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);                       // wait for a second
-  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);                       // wait for a second
+
+  ++ticktack;
+  if (ticktack >= off_intervals[off_interval]) {
+    ticktack = 0;
+    digitalWrite(RELAY, HIGH); // Turn on
+    delay(on_intervals[on_interval]);
+    digitalWrite(RELAY, LOW);
+  }
+  else {
+    delay(1000);
+  }
 }
