@@ -31,12 +31,13 @@ const int V2 = 11;
 const int V3 = 12;
 
 const int RELAY = LED_BUILTIN;
+const int INDICATOR = 2;
 
 const long Second = 1000;
 const long Minute = 60;
 
 long off_intervals[16] = {
-  1 * Minute,    // 0
+  0.1 * Minute,    // 0
   2 * Minute,    // 1
   3 * Minute,    // 2
   4 * Minute,    // 3
@@ -78,6 +79,10 @@ long on_interval;
 
 long ticktack = 0;
 
+void greeting() {
+  Serial.println("Hello.");
+}
+
 void setup() {
   pinMode(U0, INPUT_PULLUP);
   pinMode(U1, INPUT_PULLUP);
@@ -90,9 +95,16 @@ void setup() {
   pinMode(V3, INPUT_PULLUP);
   
   pinMode(RELAY, OUTPUT);
+  digitalWrite(RELAY, LOW);
+  
+  pinMode(INDICATOR, OUTPUT);
+  digitalWrite(INDICATOR, HIGH);
 
-  Serial.begin(9600);
-  Serial.println("Hello.");
+  sayImOn();
+  sayImOn();
+  sayImOn();
+
+  // Serial.begin(9600);
 }
 
 void readRotarySw() {
@@ -118,19 +130,28 @@ void printPinStatus() {
   Serial.println("---"); 
 }
 
+void sayImOn() {
+  digitalWrite(INDICATOR, LOW);
+  delay(10);
+  digitalWrite(INDICATOR, HIGH);
+  delay(40);
+}
+
 // the loop function runs over and over again forever
 void loop() {
+  sayImOn();
   readRotarySw();
-  printPinStatus();
+  // printPinStatus();
 
   ++ticktack;
   if (ticktack >= off_intervals[off_interval]) {
     ticktack = 0;
     digitalWrite(RELAY, HIGH); // Turn on
+    // sayImOn();
     delay(on_intervals[on_interval]);
     digitalWrite(RELAY, LOW);
   }
   else {
-    delay(1000);
+    delay(950);
   }
 }
