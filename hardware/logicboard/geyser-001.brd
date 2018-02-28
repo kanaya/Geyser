@@ -148,12 +148,12 @@
 <wire x1="47" y1="0" x2="47" y2="47" width="0" layer="20"/>
 <wire x1="47" y1="47" x2="0" y2="47" width="0" layer="20"/>
 <wire x1="0" y1="47" x2="0" y2="0" width="0" layer="20"/>
-<hole x="3" y="3" drill="0.32"/>
-<hole x="44" y="3" drill="0.32"/>
-<hole x="3" y="44" drill="0.32"/>
-<hole x="44" y="44" drill="0.32"/>
+<hole x="3" y="3" drill="3.2"/>
+<hole x="44" y="3" drill="3.2"/>
+<hole x="3" y="44" drill="3.2"/>
+<hole x="44" y="44" drill="3.2"/>
 <text x="24.13" y="2.54" size="0.8128" layer="25" align="bottom-center">VIN=12V -&gt; Connect L&amp;C; VIN=5V -&gt; Connect C&amp;R.</text>
-<text x="5.08" y="43.18" size="0.8128" layer="25">GEYSER 1.0 by Pineapple Computer</text>
+<text x="6.35" y="43.18" size="0.8128" layer="25">GEYSER 1.0 by Pineapple Computer</text>
 </plain>
 <libraries>
 <library name="diode" urn="urn:adsk.eagle:library:210">
