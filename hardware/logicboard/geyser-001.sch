@@ -8224,7 +8224,7 @@ naming: grid - package width</description>
 <wire x1="99.06" y1="78.74" x2="99.06" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="V12" class="0">
+<net name="VIN" class="0">
 <segment>
 <pinref part="VOLTAGE-SELECT" gate="1" pin="S"/>
 <pinref part="U$1" gate="G$1" pin="9V"/>
