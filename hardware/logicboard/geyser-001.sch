@@ -8018,6 +8018,7 @@ naming: grid - package width</description>
 <sheets>
 <sheet>
 <plain>
+<text x="22.86" y="15.24" size="1.778" layer="91">Geyser 1.0.0 by Pineapple Design</text>
 </plain>
 <instances>
 <instance part="U$1" gate="G$1" x="83.82" y="43.18" rot="R270"/>
