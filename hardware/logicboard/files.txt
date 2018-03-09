@@ -1,0 +1,11 @@
+送付ファイルリスト
+
+geyser-001.cmp （部品面パターンデータ）
+geyser-001.gpi （レポートファイル）
+geyser-001.plc （部品面シルクデータ）
+geyser-001.sol （半田面パターンデータ）
+geyser-001.stc （部品面レジストデータ）
+geyser-001.sts （半田面レジストデータ）
+geyser-001.out （外形線データ）
+geyser-001.dri （ドリルリスト）
+geyser-001.drd （ドリルデータ）
