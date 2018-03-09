@@ -1,30 +1,40 @@
 /*
-  Blink
-  Turns on an LED on for one second, then off for one second, repeatedly.
+  Geyser 1.0.0
+  Copyright (C) 2018 by Pineapple Design.
 
-  Most Arduinos have an on-board LED you can control. On the UNO, MEGA and ZERO 
-  it is attached to digital pin 13, on MKR1000 on pin 6. LED_BUILTIN is set to
-  the correct LED pin independent of which board is used.
-  If you want to know what pin the on-board LED is connected to on your Arduino model, check
-  the Technical Specs of your board  at https://www.arduino.cc/en/Main/Products
-  
-  This example code is in the public domain.
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
 
-  modified 8 May 2014
-  by Scott Fitzgerald
-  
-  modified 2 Sep 2016
-  by Arturo Guadalupi
-  
-  modified 8 Sep 2016
-  by Colby Newman
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+// OFF-INTERVAL
 const int U0 = 5;
 const int U1 = 6;
 const int U2 = 7;
 const int U3 = 8;
 
+// ON-INTERVAL
 const int V0 = 9;
 const int V1 = 10;
 const int V2 = 11;
@@ -36,8 +46,8 @@ const int INDICATOR = 2;
 const long Second = 1000;
 const long Minute = 60;
 
-long off_intervals[16] = {
-  0.1 * Minute,    // 0
+long off_intervals[16] = {  // [s]
+  0.1 * Minute,  // 0 -- Test mode
   2 * Minute,    // 1
   3 * Minute,    // 2
   4 * Minute,    // 3
@@ -55,8 +65,8 @@ long off_intervals[16] = {
   240 * Minute,  // 15
 }; 
 
-long on_intervals[16] = {
-  1 * Second,    // 0
+long on_intervals[16] = {  // [ms]
+  1 * Second,    // 0 -- Test mode
   1.5 * Second,  // 1
   2 * Second,    // 2
   2.5 * Second,  // 3
@@ -100,11 +110,10 @@ void setup() {
   pinMode(INDICATOR, OUTPUT);
   digitalWrite(INDICATOR, HIGH);
 
-  sayImOn();
-  sayImOn();
-  sayImOn();
-
   // Serial.begin(9600);
+  sayImOn();
+  sayImOn();
+  sayImOn();
 }
 
 void readRotarySw() {
@@ -131,15 +140,15 @@ void printPinStatus() {
 }
 
 void sayImOn() {
+  // Spends 50[ms]
   digitalWrite(INDICATOR, LOW);
   delay(10);
   digitalWrite(INDICATOR, HIGH);
   delay(40);
 }
 
-// the loop function runs over and over again forever
 void loop() {
-  sayImOn();
+  sayImOn();  // 50[ms]
   readRotarySw();
   // printPinStatus();
 
@@ -147,7 +156,6 @@ void loop() {
   if (ticktack >= off_intervals[off_interval]) {
     ticktack = 0;
     digitalWrite(RELAY, HIGH); // Turn on
-    // sayImOn();
     delay(on_intervals[on_interval]);
     digitalWrite(RELAY, LOW);
   }
