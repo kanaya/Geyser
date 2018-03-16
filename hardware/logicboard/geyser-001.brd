@@ -172,10 +172,9 @@ We've spent an enormous amount of time creating and checking these footprints an
 &lt;br&gt;
 You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
 <packages>
-<package name="JST-2-PTH-NS">
-<description>&lt;h3&gt;JST 2 Pin Right Angle Plated Through  Hole- No Silk&lt;/h3&gt;
+<package name="JST-2-PTH">
+<description>&lt;h3&gt;JST 2 Pin Right Angle Plated Through  Hole&lt;/h3&gt;
 tDocu indicate polarity for connections that match SparkFun LiPo battery terminations. 
-&lt;br&gt; No silk outline of connector. 
 &lt;p&gt;Specifications:
 &lt;ul&gt;&lt;li&gt;Pin count: 2&lt;/li&gt;
 &lt;li&gt;Pin pitch:2mm&lt;/li&gt;
@@ -184,19 +183,19 @@ tDocu indicate polarity for connections that match SparkFun LiPo battery termina
 &lt;p&gt;Example device(s):
 &lt;ul&gt;&lt;li&gt;CONN_02&lt;/li&gt;
 &lt;/ul&gt;&lt;/p&gt;</description>
-<wire x1="-2" y1="0" x2="-2" y2="-1.8" width="0.2032" layer="51"/>
-<wire x1="-2" y1="-1.8" x2="-3" y2="-1.8" width="0.2032" layer="51"/>
-<wire x1="-3" y1="-1.8" x2="-3" y2="6" width="0.2032" layer="51"/>
-<wire x1="-3" y1="6" x2="3" y2="6" width="0.2032" layer="51"/>
-<wire x1="3" y1="6" x2="3" y2="-1.8" width="0.2032" layer="51"/>
-<wire x1="3" y1="-1.8" x2="2" y2="-1.8" width="0.2032" layer="51"/>
-<wire x1="2" y1="-1.8" x2="2" y2="0" width="0.2032" layer="51"/>
 <pad name="1" x="-1" y="0" drill="0.7" diameter="1.6"/>
 <pad name="2" x="1" y="0" drill="0.7" diameter="1.6"/>
 <text x="-1.27" y="5.27" size="0.6096" layer="25" font="vector" ratio="20">&gt;Name</text>
-<text x="-1.27" y="4" size="0.6096" layer="27" font="vector" ratio="20">&gt;Value</text>
+<text x="-1.27" y="2.73" size="0.6096" layer="27" font="vector" ratio="20">&gt;Value</text>
 <text x="0.6" y="0.7" size="1.27" layer="51">+</text>
 <text x="-1.4" y="0.7" size="1.27" layer="51">-</text>
+<wire x1="-2.95" y1="-1.6" x2="-2.95" y2="6" width="0.2032" layer="21"/>
+<wire x1="-2.95" y1="6" x2="2.95" y2="6" width="0.2032" layer="21"/>
+<wire x1="2.95" y1="6" x2="2.95" y2="-1.6" width="0.2032" layer="21"/>
+<wire x1="-2.95" y1="-1.6" x2="-2.3" y2="-1.6" width="0.2032" layer="21"/>
+<wire x1="2.95" y1="-1.6" x2="2.3" y2="-1.6" width="0.2032" layer="21"/>
+<wire x1="-2.3" y1="-1.6" x2="-2.3" y2="0" width="0.2032" layer="21"/>
+<wire x1="2.3" y1="-1.6" x2="2.3" y2="0" width="0.2032" layer="21"/>
 </package>
 </packages>
 </library>
@@ -1984,12 +1983,16 @@ design rules under a new name.</description>
 <attribute name="NAME" x="10.16" y="6.35" size="0.6096" layer="25" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="14.478" y="8.509" size="1.27" layer="27" ratio="10" rot="R90"/>
 </element>
-<element name="VOUT" library="SparkFun-Connectors" package="JST-2-PTH-NS" value="" x="6" y="10" smashed="yes" rot="R90">
+<element name="VOUT" library="SparkFun-Connectors" package="JST-2-PTH" value="" x="6" y="10" smashed="yes" rot="R90">
 <attribute name="NAME" x="6" y="6" size="0.8128" layer="25" font="vector" ratio="20" rot="R180" align="top-right"/>
+<attribute name="PROD_ID" value="CONN-09863" x="6" y="10" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SKU" value="PRT-09914" x="6" y="10" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="2" y="8.73" size="0.6096" layer="27" font="vector" ratio="20" rot="R90"/>
 </element>
-<element name="VIN" library="SparkFun-Connectors" package="JST-2-PTH-NS" value="" x="41" y="10" smashed="yes" rot="R270">
+<element name="VIN" library="SparkFun-Connectors" package="JST-2-PTH" value="" x="41" y="10" smashed="yes" rot="R270">
 <attribute name="NAME" x="39" y="6" size="0.6096" layer="25" font="vector" ratio="20"/>
+<attribute name="PROD_ID" value="CONN-09863" x="41" y="10" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="SKU" value="PRT-09914" x="41" y="10" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="45" y="11.27" size="0.6096" layer="27" font="vector" ratio="20" rot="R270"/>
 </element>
 </elements>

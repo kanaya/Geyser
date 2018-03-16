@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -8125,8 +8125,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="SUPPLY13" library="SparkFun-PowerSymbols" deviceset="VDD" device=""/>
 <part name="SUPPLY14" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="C1" library="capacitor-wima" library_urn="urn:adsk.eagle:library:116" deviceset="C" device="2,5-3" package3d_urn="urn:adsk.eagle:package:5436/1" value="104"/>
-<part name="VOUT" library="SparkFun-Connectors" deviceset="CONN_02" device="-JST-2-PTH-NO_SILK"/>
-<part name="VIN" library="SparkFun-Connectors" deviceset="CONN_02" device="-JST-2-PTH-NO_SILK"/>
+<part name="VOUT" library="SparkFun-Connectors" deviceset="CONN_02" device="JST-PTH-2"/>
+<part name="VIN" library="SparkFun-Connectors" deviceset="CONN_02" device="JST-PTH-2"/>
 </parts>
 <sheets>
 <sheet>
